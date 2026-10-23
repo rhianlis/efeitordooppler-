@@ -1,1 +1,244 @@
 
+:root {
+    --fundo: #0b1020;
+    --painel: #151d32;
+    --borda: #2c3955;
+    --texto: #f1f5f9;
+    --texto-secundario: #aab8cf;
+    --azul: #60a5fa;
+    --roxo: #818cf8;
+    --verde: #4ade80;
+    --vermelho: #fb7185;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 32px 16px;
+    background:
+        radial-gradient(ellipse at top, #1b2c50 0%, var(--fundo) 65%);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.cabecalho {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.etiqueta {
+    display: inline-block;
+    color: var(--azul);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin: 10px 0;
+    line-height: 1.2;
+}
+
+.cabecalho p,
+.explicacao p {
+    color: var(--texto-secundario);
+}
+
+.painel,
+.resultado,
+.explicacao {
+    background: var(--painel);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    padding: 26px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+#dopplerForm {
+    display: grid;
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo label {
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.campo input {
+    width: 100%;
+    padding: 13px 14px;
+    color: var(--texto);
+    background: #0b1224;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px #60a5fa22;
+}
+
+.campo small {
+    color: var(--texto-secundario);
+    font-size: 0.8rem;
+}
+
+button {
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(100deg, var(--azul), var(--roxo));
+    color: #0b1020;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.2s, transform 0.2s;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+button.secundario {
+    background: transparent;
+    border: 1px solid var(--borda);
+    color: var(--texto);
+    margin-top: -10px;
+}
+
+.resultado {
+    text-align: center;
+    border-color: #3b5685;
+}
+
+.descricao {
+    color: var(--texto-secundario);
+    margin-bottom: 0;
+}
+
+.valor {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0;
+    color: var(--verde);
+}
+
+#frequenciaResultado {
+    font-size: clamp(2.2rem, 8vw, 3.6rem);
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.unidade {
+    font-size: 1.2rem;
+}
+
+#interpretacao {
+    color: var(--texto-secundario);
+}
+
+.detalhes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.detalhes div {
+    padding: 14px 8px;
+    background: #0b1224;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+}
+
+.detalhes span,
+.detalhes strong {
+    display: block;
+}
+
+.detalhes span {
+    color: var(--texto-secundario);
+    font-size: 0.82rem;
+}
+
+.detalhes strong {
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+}
+
+.formula {
+    padding: 18px;
+    border-radius: 10px;
+    background: #0b1224;
+    color: var(--azul) !important;
+    font-size: clamp(1rem, 4vw, 1.35rem);
+    text-align: center;
+    font-weight: bold;
+}
+
+#erro {
+    color: var(--vermelho);
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+#erro:empty {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    color: var(--texto-secundario);
+    font-size: 0.8rem;
+    padding: 10px;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 22px 12px;
+    }
+
+    .painel,
+    .resultado,
+    .explicacao {
+        padding: 19px;
+    }
+
+    .detalhes {
+        grid-template-columns: 1fr;
+    }
+}
+
