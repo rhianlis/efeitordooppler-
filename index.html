@@ -1,1 +1,140 @@
 
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulador do Efeito Doppler</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="cabecalho">
+            <span class="etiqueta">FÍSICA • ONDAS SONORAS</span>
+            <h1>Efeito Doppler</h1>
+            <p>
+                Descubra como o movimento da fonte sonora e do
+                observador altera a frequência percebida.
+            </p>
+        </header>
+
+        <section class="painel">
+            <h2>Dados do experimento</h2>
+
+            <form id="dopplerForm">
+                <div class="campo">
+                    <label for="observador">
+                        Velocidade do observador (m/s)
+                    </label>
+                    <input
+                        type="number"
+                        id="observador"
+                        value="10"
+                        step="any"
+                        required
+                    >
+                    <small>Positivo: aproximação da fonte.</small>
+                </div>
+
+                <div class="campo">
+                    <label for="fonte">
+                        Velocidade da fonte (m/s)
+                    </label>
+                    <input
+                        type="number"
+                        id="fonte"
+                        value="20"
+                        step="any"
+                        required
+                    >
+                    <small>Positivo: aproximação do observador.</small>
+                </div>
+
+                <div class="campo">
+                    <label for="som">
+                        Velocidade do som (m/s)
+                    </label>
+                    <input
+                        type="number"
+                        id="som"
+                        value="343"
+                        min="0.01"
+                        step="any"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="frequencia">
+                        Frequência da fonte (Hz)
+                    </label>
+                    <input
+                        type="number"
+                        id="frequencia"
+                        value="440"
+                        min="0.01"
+                        step="any"
+                        required
+                    >
+                </div>
+
+                <button type="submit">
+                    Calcular frequência percebida
+                </button>
+
+                <button type="button" id="limpar" class="secundario">
+                    Restaurar valores iniciais
+                </button>
+            </form>
+        </section>
+
+        <section class="resultado" aria-live="polite">
+            <span class="etiqueta">RESULTADO DO CÁLCULO</span>
+            <p class="descricao">Frequência percebida</p>
+
+            <div class="valor">
+                <span id="frequenciaResultado">—</span>
+                <span class="unidade">Hz</span>
+            </div>
+
+            <p id="interpretacao">
+                Insira os dados e calcule a frequência.
+            </p>
+
+            <div class="detalhes">
+                <div>
+                    <span>Variação</span>
+                    <strong id="variacao">—</strong>
+                </div>
+                <div>
+                    <span>Fator Doppler</span>
+                    <strong id="fator">—</strong>
+                </div>
+            </div>
+
+            <p id="erro" role="alert"></p>
+        </section>
+
+        <section class="explicacao">
+            <h2>Fórmula utilizada</h2>
+            <p class="formula">
+                f' = f × (v + vo) / (v − vs)
+            </p>
+            <p>
+                As velocidades são consideradas positivas quando
+                fonte e observador se aproximam um do outro.
+                Valores negativos representam afastamento.
+            </p>
+        </section>
+
+        <footer>
+            Simulador educacional • Efeito Doppler sonoro
+        </footer>
+    </main>
+</body>
+</html>
+
